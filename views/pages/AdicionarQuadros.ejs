@@ -1,0 +1,44 @@
+<%- contentFor('body') %>
+    <%if(typeof isadded != "undefined"){
+    if(isadded){%>
+        <script>
+            notify('success', 'Quadro adicionado com sucesso !')
+        </script>
+        <%}else{%>
+            <script>
+                notify('danger', 'Erro ao adicionar quadro !')
+            </script>
+            <%}}%>
+                <div class="animate__animated animate__fadeIn list-quadros">
+
+                    <div class="form-container">
+                        <h1 class="animate__animated animate__fadeInUp">Adicionar Quadro</h1>
+                        <form method="POST">
+                            <div class="input-container animate__animated animate__fadeInLeft">
+                                <div class="input-infos"><i class="fi fi-picture"></i></div>
+                                <input type="text" name="nome" placeholder="Nome" autocomplete="off">
+                            </div>
+                            <div class="input-container animate__animated animate__fadeInRight">
+                                <div class="input-infos"><i class="fi fi-link"></i></div>
+                                <input type="text" name="url" placeholder="Url da imagem" autocomplete="off">
+                            </div>
+
+                            <div class="input-container animate__animated animate__fadeInLeft">
+                                <div class="input-infos"><i class="fi fi-text-height"></i></div>
+                                <input type="number" name="height" placeholder="Altura" autocomplete="off">
+                            </div>
+
+                            <div class="input-container animate__animated animate__fadeInRight">
+                                <div class="input-infos"><i class="fi fi-text-width"></i></div>
+                                <input type="number" name="width" placeholder="Largura" autocomplete="off">
+                            </div>
+
+                            <div class="input-container animate__animated animate__fadeInLeft">
+                                <div class="input-infos"><i class="fi fi-dollar"></i></div>
+                                <input type="number" name="price" placeholder="Preço" autocomplete="off">
+                            </div>
+
+                            <button class="submitBtn animate__animated animate__bounceIn" type="submit"><i class="fi fi-save"></i>&nbsp Salvar</button>
+                        </form>
+                    </div>
+                </div>

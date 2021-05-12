@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SuperQuadros</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<script>
+    $(document).on('click', '.close-notify', function() {
+        $(this).parents('.notify').remove();
+    });
+
+
+    const notify = (type, msg) => {
+        if (type == "success") {
+            $('.notify-container').append(`
+        <div class="notify animate__animated animate__fadeInRight">
+            <div class="type-notify success"><i class="fi fi-like"></i></div>
+            <div style="width: 100%;"><a>${msg}</a></div>
+            <a class="close-notify"><i class="fi fi-close"></i></a>
+        </div>
+        `)
+        } else if (type == "danger") {
+            $('.notify-container').append(`
+        <div class="notify animate__animated animate__fadeInRight">
+            <div class="type-notify danger"><i class="fi fi-dislike"></i></div>
+            <div style="width: 100%;"><a>${msg}</a></div>
+            <a class="close-notify"><i class="fi fi-close"></i></a>
+        </div>
+        `)
+
+
+        }
+    }
+</script>
+
+<body>
+    <header>
+        <div class="animate__animated animate__fadeInDown nav-header">
+            <div>
+                <i class="fi fi-picture"></i><a href="/" id="title-page"> SuperQuadros</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/info">Informações</a></li>
+                <li><a href="/contact">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="notify-container">
+
+    </div>
+    <main>
+        <div class="container">
+            <%- body %>
+
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+
+
+</html>

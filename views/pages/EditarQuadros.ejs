@@ -1,0 +1,50 @@
+<%- contentFor('body') %>
+    <%if(quadro == ""){%>
+        <script>
+            notify('danger', 'Quadro não encontrado !')
+        </script>
+        <%}%>
+            <%if(typeof isadded != "undefined"){
+    if(isadded){%>
+                <script>
+                    notify('success', 'Quadro editado com sucesso !')
+                </script>
+                <%}else{%>
+                    <script>
+                        notify('danger', 'Erro ao editar quadro !')
+                    </script>
+                    <%}}%>
+                        <div class="animate__animated animate__fadeIn list-quadros">
+
+                            <div class="form-container">
+                                <h1 class="animate__animated animate__fadeInUp">Editar Quadro</h1>
+                                <form method="POST">
+                                    <input type="hidden" name="id" autocomplete="off" value="<%= quadro[0].id%>">
+                                    <div class="input-container animate__animated animate__fadeInLeft">
+                                        <div class="input-infos"><i class="fi fi-picture"></i></div>
+                                        <input type="text" name="nome" placeholder="Nome" autocomplete="off" value="<%= quadro[0].title%>">
+                                    </div>
+                                    <div class="input-container animate__animated animate__fadeInRight">
+                                        <div class="input-infos"><i class="fi fi-link"></i></div>
+                                        <input type="text" name="url" placeholder="Url da imagem" autocomplete="off" value="<%= quadro[0].img %>">
+                                    </div>
+
+                                    <div class="input-container animate__animated animate__fadeInLeft">
+                                        <div class="input-infos"><i class="fi fi-text-height"></i></div>
+                                        <input type="number" name="height" placeholder="Altura" autocomplete="off" value="<%= quadro[0].height %>">
+                                    </div>
+
+                                    <div class="input-container animate__animated animate__fadeInRight">
+                                        <div class="input-infos"><i class="fi fi-text-width"></i></div>
+                                        <input type="number" name="width" placeholder="Largura" autocomplete="off" value="<%= quadro[0].width %>">
+                                    </div>
+
+                                    <div class="input-container animate__animated animate__fadeInLeft">
+                                        <div class="input-infos"><i class="fi fi-dollar"></i></div>
+                                        <input type="number" name="price" placeholder="Preço" autocomplete="off" value="<%= quadro[0].price %>">
+                                    </div>
+
+                                    <button class="submitBtn animate__animated animate__bounceIn" type="submit"><i class="fi fi-save-1"></i>&nbsp Editar</button>
+                                </form>
+                            </div>
+                        </div>

@@ -1,0 +1,44 @@
+<%- contentFor('body') %>
+
+
+    <div class="animate__animated animate__fadeIn list-quadros">
+        <%if(typeof isdeleted != "undefined"){
+            if(isdeleted){%>
+            <script>
+                notify('success', 'Quadro deletado com sucesso !')
+            </script>
+            <%}else{%>
+                <script>
+                    notify('danger', 'Erro ao deletar quadro !')
+                </script>
+                <%}}%>
+                    <header>
+                        <span>
+            <i class="fi fi-plus-a"></i>
+            <a href="/adicionar-quadro">&nbsp Adicionar Quadro</a>
+        </span>
+                    </header>
+                    <div class="all-quadros ">
+                        <% for (quadro of quadros){%>
+                            <div class="animate__animated animate__bounceIn quadro">
+                                <div class="infos">
+                                    <a><i class="fi fi-dollar"></i> <%= quadro.price %></a>
+                                    <a><i class="fi fi-arrow-expand"></i> <%= quadro.height %>x<%= quadro.width %></a>
+                                </div>
+                                <div class="object-fit">
+                                    <img src="<%= quadro.img %>" onerror="this.onerror=null; this.src='https://i.imgur.com/wv1jYyB.jpg'">
+                                </div>
+                                <div class="qTitle">
+                                    <a>
+                                        <%= quadro.title %>
+                                    </a>
+                                    <span>
+                <a href="/editar-quadro/<%= quadro.id %>" style="color: #000000;"><i class="fi fi-spinner-cog"></i></a>
+                <a href="/deletar/<%= quadro.id %>" style="color: #f90000;"><i class="fi fi-trash"></i></a>
+            </span>
+                                </div>
+                            </div>
+                            <% } %>
+
+                    </div>
+    </div>

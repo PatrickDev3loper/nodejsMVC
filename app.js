@@ -16,6 +16,6 @@ app.use(express.static(__dirname + '/public'))
 
 app.use('/', quadrosRoute)
 
-appa.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server aberto: http://localhost:${port}`)
 })
